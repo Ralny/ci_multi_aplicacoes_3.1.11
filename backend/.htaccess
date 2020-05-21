@@ -1,6 +1,13 @@
+### DEFININDO O CHARSET DO SITE ATRAVES DO .HTACCESS
 AddDefaultCharset UTF-8
+
 <IfModule mod_rewrite.c>
+    
     RewriteEngine On
+
+    RewriteCond %{REQUEST_URI} assets 
+    RewriteRule ^(.*)$ http://local.trivee.com.br/$1 [R,L]
+
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
 
@@ -8,6 +15,7 @@ AddDefaultCharset UTF-8
 
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
+    
     RewriteRule ^(.*)$ index.php/$1 [L]
 
 </IfModule>

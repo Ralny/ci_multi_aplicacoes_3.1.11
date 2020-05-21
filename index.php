@@ -230,6 +230,7 @@ switch (ENVIRONMENT)
 	define('BASEPATH', $system_path);
 
 	// Path to the front controller (this file) directory
+	//define('FCPATH', dirname(__FILE__).'/');
 	define('FCPATH', dirname(__FILE__).DIRECTORY_SEPARATOR);
 
 	// Name of the "system" directory
@@ -313,3 +314,6 @@ switch (ENVIRONMENT)
  * And away we go...
  */
 require_once BASEPATH.'core/CodeIgniter.php';
+//require_once BASEPATH.'core/CodeIgniter.php';
+//require_once '../system/core/CodeIgniter.php';
+//var_dump(BASEPATH.'core/CodeIgniter.php');exit;

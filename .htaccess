@@ -1,10 +1,21 @@
+### DEFININDO O CHARSET DO SITE ATRAVES DO .HTACCESS
 AddDefaultCharset UTF-8
-<IfModule mod_rewrite.c>
-RewriteEngine on
 
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond $1 !^(index|assets|favicon\.ico|jlcms)
-RewriteRule ^(.*)$ /index.php?/$1 [L]
+<IfModule mod_rewrite.c>
+
+    RewriteEngine on
+
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond $1 !^(index|assets|favicon\.ico|jlcms)
+    RewriteRule ^(.*)$ /index.php?/$1 [L]
+
+    ### CORS dá aos servidores web controle de acesso de domínio cruzado, o que permite transferência de dados entre domínios seguros.
+    ### O código abaixo permite que o site que envie esse cabeçalho solicitasse recursos (como solicitações de AJAX ou Webfonts) a partir do domínio
+    
+    #HABILITAR CORS
+    Header always set Access-Control-Allow-Origin: "*"
+    #DESABILITAR
+    #Header Set Access-Control-Allow-Origin "*"
 
 </IfModule>    
